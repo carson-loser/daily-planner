@@ -16,25 +16,21 @@ var fourPmvent = document.getElementById("fourPm")
 var fourPmBtn = document.getElementById("4pmBtn")
 var fivePmEvent = document.getElementById("fivePm")
 var fivePmBtn = document.getElementById("5pmBtn")
-
-
-
+var nineAmSavedEvent = "";
 
 
 function timeHandler() {
   setInterval(function (){
-    $("#currentDay").text(moment().format("MMMM Do YYYY, H:mm:sssZ a"));
+    $("#currentDay").text(moment().format("MMMM Do YYYY, h:mm:ss"));
   }, 1000);
 }
 
 timeHandler();
 
-var currentHour = moment().format("HH");
-console.log(currentHour);
+var time = $(".hour");
 
-var hourBadge = $(".hour");
-
-$.each(hourBadge, function (){
+$.each(time, function (){
+  var currentHour = moment().format("h:mm:ss");
   var hourId = $(this).attr("id");
   if(hourId === currentHour) {
     $(this).next().addClass("present");
@@ -45,17 +41,10 @@ $.each(hourBadge, function (){
   }
 });
 
-function saveEvents(event) {
-  var plannerInput = event.target.parentElement.previousElementSibling.children[0].value
-  var idName = event.target.attribute.id
-  console.log(idName)
-  localStorage.setItem(idName, plannerInput)
-};
 
-$(".saveBtn").on("click", saveEvents)
-
-// nineAmBtn.addEventListener("click", function (){
-//   var nineAmSavedInput = nineAmEvent.value;
-//   localStorage.setItem("nineAmSavedInput", JSON.stringify(nineAmSavedInput));
-//   nineAmEvent.value = JSON.parse(localStorage.getItem("nineAmSavedInput"));
-// });
+nineAmBtn.addEventListener("click", function () {
+  var nineAmSavedInput = nineAmEvent.value;
+  localStorage.setItem("nineAmSavedInput", JSON.stringify(nineAmSavedInput));
+  nineAmSavedEvent= JSON.parse(localStorage.getItem("nineAmSavedInput"));
+  
+});
