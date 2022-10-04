@@ -1,0 +1,39 @@
+body, 
+.container {
+  background-color: #e5e5e5;
+}
+
+.row {
+  margin-top: 20px;
+  border-bottom: 1px solid black;
+}
+
+.hour {
+  background-color: #e5e5e5;
+}
+
+.past {
+  background-color: black;
+  color: white;
+}
+
+.present {
+  background-color: salmon;
+}
+
+.future {
+  background-color: green;
+}
+
+#nineAmDisp,
+#tenAmDisp,
+#elevenAmDisp,
+#twelvePmDisp,
+#onePmDisp,
+#twoPmDisp,
+#threePmDisp,
+#fourPmDisp,
+#fivePmDisp {
+  width: 100%;
+  margin-top: 7px;
+}
